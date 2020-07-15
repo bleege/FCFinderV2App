@@ -13,7 +13,9 @@ struct MainView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
     
     var body: some View {
-        Map(coordinateRegion: $region).edgesIgnoringSafeArea(.all)
+        NavigationView {
+            Map(coordinateRegion: $region).edgesIgnoringSafeArea(.all).navigationTitle("Some League").navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
