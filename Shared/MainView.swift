@@ -11,11 +11,20 @@ import MapKit
 struct MainView: View {
     
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
+    @State private var bottomSheetShown = false
     
     var body: some View {
-        NavigationView {
-            Map(coordinateRegion: $region).edgesIgnoringSafeArea(.all).navigationTitle("Some League").navigationBarTitleDisplayMode(.inline)
+
+        GeometryReader { geometry in
+
+        Map(coordinateRegion: $region)
+            .navigationTitle("Some League")
+            .navigationBarTitleDisplayMode(.inline)
+        BottomSheetView(isOpen: $bottomSheetShown, maxHeight: 600) {
+            Text("Bottomr Sheet Content!")
         }
+        }
+        
     }
 }
 

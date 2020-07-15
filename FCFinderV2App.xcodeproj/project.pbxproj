@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */; };
 		A251C98E24B545EA00A9250F /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* Tests_iOS.swift */; };
 		A251C99924B545EA00A9250F /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C99824B545EA00A9250F /* Tests_macOS.swift */; };
 		A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFinderV2AppApp.swift; sourceTree = "<group>"; };
 		A251C97324B545E800A9250F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A251C97424B545EA00A9250F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				A251C97C24B545EA00A9250F /* Info.plist */,
+				A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			files = (
 				A251C99D24B545EA00A9250F /* MainView.swift in Sources */,
 				A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
+				A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
