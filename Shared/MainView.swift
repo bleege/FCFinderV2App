@@ -16,14 +16,11 @@ struct MainView: View {
     var body: some View {
 
         GeometryReader { geometry in
-
-        Map(coordinateRegion: $region)
-            .navigationTitle("Some League")
-            .navigationBarTitleDisplayMode(.inline)
-        BottomSheetView(isOpen: $bottomSheetShown, maxHeight: 600) {
-            Text("Bottomr Sheet Content!")
-        }
-        }
+            Map(coordinateRegion: $region)
+            BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.7) {
+                Text("Selected League Name Goes Here")
+            }
+        }.edgesIgnoringSafeArea(.all)
         
     }
 }

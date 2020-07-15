@@ -16,7 +16,6 @@ fileprivate enum Constants {
     static let indicatorHeight: CGFloat = 6
     static let indicatorWidth: CGFloat = 60
     static let snapRatio: CGFloat = 0.25
-    static let minHeightRatio: CGFloat = 0.3
 }
 
 struct BottomSheetView<Content: View>: View {
@@ -44,7 +43,7 @@ struct BottomSheetView<Content: View>: View {
     }
 
     init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
-        self.minHeight = maxHeight * Constants.minHeightRatio
+        self.minHeight = 100
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
