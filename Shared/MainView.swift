@@ -23,30 +23,33 @@ struct MainView: View {
     @State private var selectedFlavor = Flavor.chocolate
     
     var body: some View {
-
+        
         GeometryReader { geometry in
             Map(coordinateRegion: $region)
-            BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.7) {
-                VStack {
-                    Text("Selected League Name Goes Here")
-                    Picker("Flavor 1", selection: $selectedFlavor) {
-                        ForEach(Flavor.allCases) { flavor in
-                            Text(flavor.rawValue.capitalized)
+            BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
+                Text("Selected League Name Goes Here")
+                NavigationView {
+                    Form {
+                        Picker("Flavor 1", selection: $selectedFlavor) {
+                            ForEach(Flavor.allCases) { flavor in
+                                Text(flavor.rawValue.capitalized)
+                            }
                         }
-                    }
-                    Picker("Flavor 2", selection: $selectedFlavor) {
-                        ForEach(Flavor.allCases) { flavor in
-                            Text(flavor.rawValue.capitalized)
+                        Picker("Flavor 2", selection: $selectedFlavor) {
+                            ForEach(Flavor.allCases) { flavor in
+                                Text(flavor.rawValue.capitalized)
+                            }
                         }
-                    }
-                    Picker("Flavor 3", selection: $selectedFlavor) {
-                        ForEach(Flavor.allCases) { flavor in
-                            Text(flavor.rawValue.capitalized)
+                        Picker("Flavor 3", selection: $selectedFlavor) {
+                            ForEach(Flavor.allCases) { flavor in
+                                Text(flavor.rawValue.capitalized)
+                            }
                         }
                     }
                 }
             }
-        }.edgesIgnoringSafeArea(.all)
+        }
+        .edgesIgnoringSafeArea(.all)
         
     }
 }
