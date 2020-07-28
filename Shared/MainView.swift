@@ -34,6 +34,15 @@ struct MainView: View {
                             ForEach(Flavor.allCases) { flavor in
                                 Text(flavor.rawValue.capitalized)
                             }
+                        }.onAppear {
+                            Network.shared.apollo.fetch(query: GetCountriesQuery()) { result in
+                              switch result {
+                              case .success(let graphQLResult):
+                                print("Success! Result: \(graphQLResult)")
+                              case .failure(let error):
+                                print("Failure! Error: \(error)")
+                              }
+                            }
                         }
                         Picker("Flavor 2", selection: $selectedFlavor) {
                             ForEach(Flavor.allCases) { flavor in
