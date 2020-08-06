@@ -24,7 +24,7 @@ struct MainView: View {
     @State private var bottomSheetShown = false
     @State private var selectedFlavor = Flavor.strawberry
     
-    @State var selectedCountryName: String = ""
+    @State var selectedCountryId: Int = -1
     
     init() {
         self.init(viewModel: ViewModel())
@@ -42,9 +42,9 @@ struct MainView: View {
                 Text("Selected Flavor = \(selectedFlavor.rawValue)")
                 NavigationView {
                     Form {
-                        Picker("Countries", selection: $selectedCountryName) {
+                        Picker("Countries", selection: $selectedCountryId) {
                             ForEach(viewModel.countries) { country in
-                                Text(country.name).tag(country.name)
+                                Text(country.name).tag(country.countryId)
                             }
                         }
                         Picker("Flavor 2", selection: $selectedFlavor) {
@@ -52,11 +52,6 @@ struct MainView: View {
                                 Text(flavor.rawValue.capitalized).tag(flavor)
                             }
                         }
-//                        Picker("Flavor 3", selection: $selectedFlavor) {
-//                            ForEach(Flavor.allCases) { flavor in
-//                                Text(flavor.rawValue.capitalized)
-//                            }
-//                        }
                     }
                 }
             }
@@ -70,11 +65,6 @@ extension MainView {
     
     class ViewModel: ObservableObject {
         @Published private(set) var countries: [Country] = []
-//        @Binding var selectedCountryIndex: Int {
-//            didSet {
-//                print("selecteCountry set to = \(self.selectedCountryIndex)")
-//            }
-//        }
         
         init() {
             loadAllCountries()
@@ -86,7 +76,7 @@ extension MainView {
               switch result {
               case .success(let graphQLResult):
                 print("successful load of data")
-//                self.countries.removeAll()
+                self.countries.removeAll()
                 if let countriesArray = graphQLResult.data?.getAllCountries {
                     self.countries.append(contentsOf: countriesArray.compactMap { Country(countryId: $0.id, name: $0.name) })
                 }
