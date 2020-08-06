@@ -23,6 +23,8 @@
 		A2733C9824CFC38B007132E2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2733C9624CFC38B007132E2 /* Network.swift */; };
 		A2733C9A24CFC8AF007132E2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2733C9924CFC8AF007132E2 /* API.swift */; };
 		A2733C9B24CFC8AF007132E2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2733C9924CFC8AF007132E2 /* API.swift */; };
+		A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
+		A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D6640D24CCE4C1002F25BE /* ApolloCore in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6640C24CCE4C1002F25BE /* ApolloCore */; };
 		A2D6640F24CCE4C1002F25BE /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6640E24CCE4C1002F25BE /* ApolloWebSocket */; };
 		A2D6641124CCE4C1002F25BE /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6641024CCE4C1002F25BE /* Apollo */; };
@@ -67,6 +69,7 @@
 		A2733C9624CFC38B007132E2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A2733C9924CFC8AF007132E2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A2BFDE2E24B7F14200CF1DE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		A2D5BD7E24D76A0600C6ADEC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,7 @@
 				A251C97424B545EA00A9250F /* Assets.xcassets */,
 				A22B935824CE412A00FC74FD /* schema.json */,
 				A2733C9024CFC005007132E2 /* GetCountries.graphql */,
+				A2D5BD7E24D76A0600C6ADEC /* Country.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -382,6 +386,7 @@
 				A251C99D24B545EA00A9250F /* MainView.swift in Sources */,
 				A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
 				A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */,
+				A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */,
 				A2733C9A24CFC8AF007132E2 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +398,7 @@
 				A251C99E24B545EA00A9250F /* MainView.swift in Sources */,
 				A2733C9824CFC38B007132E2 /* Network.swift in Sources */,
 				A2733C9B24CFC8AF007132E2 /* API.swift in Sources */,
+				A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */,
 				A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
