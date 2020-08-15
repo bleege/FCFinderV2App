@@ -23,6 +23,8 @@
 		A2733C9824CFC38B007132E2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2733C9624CFC38B007132E2 /* Network.swift */; };
 		A2733C9A24CFC8AF007132E2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2733C9924CFC8AF007132E2 /* API.swift */; };
 		A2733C9B24CFC8AF007132E2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2733C9924CFC8AF007132E2 /* API.swift */; };
+		A299955924E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */; };
+		A299955A24E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */; };
 		A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D6640D24CCE4C1002F25BE /* ApolloCore in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6640C24CCE4C1002F25BE /* ApolloCore */; };
@@ -68,6 +70,7 @@
 		A2733C9024CFC005007132E2 /* GetCountries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCountries.graphql; sourceTree = "<group>"; };
 		A2733C9624CFC38B007132E2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A2733C9924CFC8AF007132E2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetLeaguesByCountry.graphql; sourceTree = "<group>"; };
 		A2BFDE2E24B7F14200CF1DE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		A2D5BD7E24D76A0600C6ADEC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +136,7 @@
 				A22B935824CE412A00FC74FD /* schema.json */,
 				A2733C9024CFC005007132E2 /* GetCountries.graphql */,
 				A2D5BD7E24D76A0600C6ADEC /* Country.swift */,
+				A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -326,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A299955924E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */,
 				A251C99F24B545EA00A9250F /* Assets.xcassets in Resources */,
 				A2733C9124CFC005007132E2 /* GetCountries.graphql in Resources */,
 			);
@@ -335,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A299955A24E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */,
 				A251C9A024B545EA00A9250F /* Assets.xcassets in Resources */,
 				A2733C9224CFC005007132E2 /* GetCountries.graphql in Resources */,
 			);

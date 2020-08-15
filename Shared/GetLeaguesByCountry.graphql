@@ -1,0 +1,12 @@
+query GetLeaguesByCountry {
+  getLeaguesByCountryId(countryId: 1) {
+    id,
+    name,
+    division,
+    country {
+      id,
+      name
+    }
+    confederation
+  }
+}
