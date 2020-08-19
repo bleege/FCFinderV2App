@@ -105,8 +105,8 @@ public final class GetLeaguesByCountryQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query GetLeaguesByCountry {
-      getLeaguesByCountryId(countryId: 1) {
+    query GetLeaguesByCountry($countryId: Int!) {
+      getLeaguesByCountryId(countryId: $countryId) {
         __typename
         id
         name
@@ -123,7 +123,14 @@ public final class GetLeaguesByCountryQuery: GraphQLQuery {
 
   public let operationName: String = "GetLeaguesByCountry"
 
-  public init() {
+  public var countryId: Int
+
+  public init(countryId: Int) {
+    self.countryId = countryId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["countryId": countryId]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -131,7 +138,7 @@ public final class GetLeaguesByCountryQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("getLeaguesByCountryId", arguments: ["countryId": 1], type: .nonNull(.list(.nonNull(.object(GetLeaguesByCountryId.selections))))),
+        GraphQLField("getLeaguesByCountryId", arguments: ["countryId": GraphQLVariable("countryId")], type: .nonNull(.list(.nonNull(.object(GetLeaguesByCountryId.selections))))),
       ]
     }
 

@@ -1,5 +1,5 @@
-query GetLeaguesByCountry {
-  getLeaguesByCountryId(countryId: 1) {
+query GetLeaguesByCountry($countryId: Int!) {
+  getLeaguesByCountryId(countryId: $countryId) {
     id,
     name,
     division,

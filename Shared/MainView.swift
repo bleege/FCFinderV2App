@@ -90,6 +90,18 @@ extension MainView {
 
         }
         
+        func getLeaguesByCountry(countryId: Int) {
+            print("getLeaguesByCountry with countryId = \(countryId)")
+            Network.shared.apollo.fetch(query: GetLeaguesByCountryQuery(countryId: countryId)) { result in
+                switch result {
+                case .success(let graphQLResult):
+                    print("Success loaded leagues: \(graphQLResult.data?.getLeaguesByCountryId)")
+                case .failure(let error):
+                    print("Failure!: Error: \(error)")
+                }
+            }
+        }
+        
     }
     
 }
