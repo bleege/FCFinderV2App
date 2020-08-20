@@ -23,9 +23,7 @@ struct MainView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
     @State private var bottomSheetShown = false
     @State private var selectedFlavor = Flavor.strawberry
-    
-    @State var selectedCountryId: Int = -1
-    
+        
     init() {
         self.init(viewModel: ViewModel())
     }
@@ -42,7 +40,7 @@ struct MainView: View {
                 Text("Selected Flavor = \(selectedFlavor.rawValue)")
                 NavigationView {
                     Form {
-                        Picker("Countries", selection: $selectedCountryId) {
+                        Picker("Countries", selection: $viewModel.selectedCountryId) {
                             ForEach(viewModel.countries) { country in
                                 Text(country.name).tag(country.countryId)
                             }
@@ -65,6 +63,11 @@ extension MainView {
     
     class ViewModel: ObservableObject {
         @Published private(set) var countries: [Country] = []
+        @Published var selectedCountryId: Int = -1 {
+            didSet {
+                getLeaguesByCountry(countryId: selectedCountryId)
+            }
+        }
         
         init() {
             loadAllCountries()
