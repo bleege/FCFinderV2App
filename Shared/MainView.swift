@@ -8,21 +8,12 @@
 import SwiftUI
 import MapKit
 
-enum Flavor: String, CaseIterable, Identifiable {
-    case chocolate
-    case vanilla
-    case strawberry
-
-    var id: String { self.rawValue }
-}
-
 struct MainView: View {
     
     @ObservedObject var viewModel: ViewModel
     
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
     @State private var bottomSheetShown = false
-    @State private var selectedFlavor = Flavor.strawberry
         
     init() {
         self.init(viewModel: ViewModel())
@@ -37,7 +28,6 @@ struct MainView: View {
         GeometryReader { geometry in
             Map(coordinateRegion: $region)
             BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
-                Text("Selected Flavor = \(selectedFlavor.rawValue)")
                 NavigationView {
                     Form {
                         Picker("Countries", selection: $viewModel.selectedCountryId) {
@@ -45,9 +35,9 @@ struct MainView: View {
                                 Text(country.name).tag(country.countryId)
                             }
                         }
-                        Picker("Flavor 2", selection: $selectedFlavor) {
-                            ForEach(Flavor.allCases) { flavor in
-                                Text(flavor.rawValue.capitalized).tag(flavor)
+                        Picker("Leagues", selection: $viewModel.selectedLeagueId) {
+                            ForEach(viewModel.countryLeages) { league in
+                                Text(league.name).tag(league.leagueId)
                             }
                         }
                     }
@@ -63,11 +53,14 @@ extension MainView {
     
     class ViewModel: ObservableObject {
         @Published private(set) var countries: [Country] = []
+        @Published private(set) var countryLeages: [League] = []
         @Published var selectedCountryId: Int = -1 {
             didSet {
                 getLeaguesByCountry(countryId: selectedCountryId)
             }
         }
+        @Published var selectedLeagueId: Int = -1
+
         
         init() {
             loadAllCountries()
@@ -98,7 +91,13 @@ extension MainView {
             Network.shared.apollo.fetch(query: GetLeaguesByCountryQuery(countryId: countryId)) { result in
                 switch result {
                 case .success(let graphQLResult):
-                    print("Success loaded leagues: \(graphQLResult.data?.getLeaguesByCountryId)")
+                    self.countryLeages.removeAll()
+                    if let leagueArray = graphQLResult.data?.getLeaguesByCountryId {
+                        self.countryLeages.append(contentsOf: leagueArray.compactMap { League(leagueId: $0.id, name: $0.name, division: $0.division, country: Country(countryId: $0.country.id, name: $0.country.name), confederation: $0.confederation) })
+                    }
+                    if let errors = graphQLResult.errors {
+                        print("Errors: \(errors)")
+                    }
                 case .failure(let error):
                     print("Failure!: Error: \(error)")
                 }
