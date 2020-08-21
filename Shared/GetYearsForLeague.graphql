@@ -1,0 +1,4 @@
+query GetYearsForLeague($leagueId: Int!) {
+  getYearsForLeague(leagueId: $leagueId)
+}
+

@@ -290,3 +290,54 @@ public final class GetLeaguesByCountryQuery: GraphQLQuery {
     }
   }
 }
+
+public final class GetYearsForLeagueQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GetYearsForLeague($leagueId: Int!) {
+      getYearsForLeague(leagueId: $leagueId)
+    }
+    """
+
+  public let operationName: String = "GetYearsForLeague"
+
+  public var leagueId: Int
+
+  public init(leagueId: Int) {
+    self.leagueId = leagueId
+  }
+
+  public var variables: GraphQLMap? {
+    return ["leagueId": leagueId]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("getYearsForLeague", arguments: ["leagueId": GraphQLVariable("leagueId")], type: .nonNull(.list(.nonNull(.scalar(Int.self))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(getYearsForLeague: [Int]) {
+      self.init(unsafeResultMap: ["__typename": "Query", "getYearsForLeague": getYearsForLeague])
+    }
+
+    public var getYearsForLeague: [Int] {
+      get {
+        return resultMap["getYearsForLeague"]! as! [Int]
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "getYearsForLeague")
+      }
+    }
+  }
+}
