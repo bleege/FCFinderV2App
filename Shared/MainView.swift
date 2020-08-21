@@ -40,6 +40,11 @@ struct MainView: View {
                                 Text(league.name).tag(league.leagueId)
                             }
                         }
+                        Picker("Years", selection: $viewModel.selectedLeagueYear) {
+                            ForEach(viewModel.leagueYears, id: \.self) { year in
+                                Text(year.description).tag(year)
+                            }
+                        }
                     }
                 }
             }
@@ -54,12 +59,14 @@ extension MainView {
     class ViewModel: ObservableObject {
         @Published private(set) var countries: [Country] = []
         @Published private(set) var countryLeages: [League] = []
+        @Published private(set) var leagueYears: [Int] = []
         @Published var selectedCountryId: Int = -1 {
             didSet {
                 getLeaguesByCountry(countryId: selectedCountryId)
             }
         }
         @Published var selectedLeagueId: Int = -1
+        @Published var selectedLeagueYear: Int = -1
 
         
         init() {
