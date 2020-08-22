@@ -65,7 +65,11 @@ extension MainView {
                 getLeaguesByCountry(countryId: selectedCountryId)
             }
         }
-        @Published var selectedLeagueId: Int = -1
+        @Published var selectedLeagueId: Int = -1 {
+            didSet {
+                getYearsForLeague(leagueId: selectedLeagueId)
+            }
+        }
         @Published var selectedLeagueYear: Int = -1
 
         
@@ -109,6 +113,25 @@ extension MainView {
                     print("Failure!: Error: \(error)")
                 }
             }
+        }
+        
+        func getYearsForLeague(leagueId: Int) {
+            print("getYearsForLeague() with leagueId = \(leagueId)")
+            Network.shared.apollo.fetch(query: GetYearsForLeagueQuery(leagueId: leagueId)) { result in
+                switch result {
+                case .success(let graphQLResult):
+                    self.leagueYears.removeAll()
+                    if let yearsArray = graphQLResult.data?.getYearsForLeague {
+                        self.leagueYears.append(contentsOf: yearsArray)
+                    }
+                    if let errors = graphQLResult.errors {
+                        print("Errors: \(errors)")
+                    }
+                case .failure(let error):
+                    print("Failure!: Error: \(error)")
+                }
+            }
+            
         }
         
     }
