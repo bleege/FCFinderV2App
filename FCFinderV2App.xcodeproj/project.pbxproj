@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21DB50D24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */; };
+		A21DB50E24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */; };
+		A21DB51024F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
+		A21DB51124F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
 		A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */; };
 		A251C98E24B545EA00A9250F /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* Tests_iOS.swift */; };
 		A251C99924B545EA00A9250F /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C99824B545EA00A9250F /* Tests_macOS.swift */; };
@@ -55,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetClubsForLeagueAndYear.graphql; sourceTree = "<group>"; };
+		A21DB50F24F2122800546D5B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		A22B935824CE412A00FC74FD /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
 		A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFinderV2AppApp.swift; sourceTree = "<group>"; };
@@ -139,12 +145,14 @@
 				A2733C9924CFC8AF007132E2 /* API.swift */,
 				A2733C9624CFC38B007132E2 /* Network.swift */,
 				A251C97424B545EA00A9250F /* Assets.xcassets */,
+				A21DB50F24F2122800546D5B /* Club.swift */,
 				A2D5BD7E24D76A0600C6ADEC /* Country.swift */,
 				A298128924F064AC00A298FE /* League.swift */,
 				A22B935824CE412A00FC74FD /* schema.json */,
 				A2733C9024CFC005007132E2 /* GetCountries.graphql */,
 				A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */,
 				A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */,
+				A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -338,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A21DB50D24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */,
 				A299955924E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */,
 				A251C99F24B545EA00A9250F /* Assets.xcassets in Resources */,
 				A2733C9124CFC005007132E2 /* GetCountries.graphql in Resources */,
@@ -349,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A21DB50E24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */,
 				A299955A24E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */,
 				A251C9A024B545EA00A9250F /* Assets.xcassets in Resources */,
 				A2733C9224CFC005007132E2 /* GetCountries.graphql in Resources */,
@@ -401,6 +411,7 @@
 				A298128A24F064AC00A298FE /* League.swift in Sources */,
 				A2733C9724CFC38B007132E2 /* Network.swift in Sources */,
 				A251C99D24B545EA00A9250F /* MainView.swift in Sources */,
+				A21DB51024F2122800546D5B /* Club.swift in Sources */,
 				A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
 				A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */,
 				A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */,
@@ -415,6 +426,7 @@
 				A251C99E24B545EA00A9250F /* MainView.swift in Sources */,
 				A2733C9824CFC38B007132E2 /* Network.swift in Sources */,
 				A2733C9B24CFC8AF007132E2 /* API.swift in Sources */,
+				A21DB51124F2122800546D5B /* Club.swift in Sources */,
 				A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */,
 				A298128B24F064AD00A298FE /* League.swift in Sources */,
 				A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,

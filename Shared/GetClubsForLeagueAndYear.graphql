@@ -1,0 +1,10 @@
+# Write your query or mutation here
+query GetClubsByLeagueAndYear($leagueId: Int!, $year: Int!) {
+  getClubsByLeagueAndYear(leagueId: $leagueId, year: $year) {
+    id,
+    name,
+    stadiumName,
+    latitude,
+    longitude,
+  }
+}

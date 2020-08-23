@@ -60,6 +60,7 @@ extension MainView {
         @Published private(set) var countries: [Country] = []
         @Published private(set) var countryLeages: [League] = []
         @Published private(set) var leagueYears: [Int] = []
+        @Published private(set) var clubs: [Club] = []
         @Published var selectedCountryId: Int = -1 {
             didSet {
                 getLeaguesByCountry(countryId: selectedCountryId)
@@ -70,7 +71,11 @@ extension MainView {
                 getYearsForLeague(leagueId: selectedLeagueId)
             }
         }
-        @Published var selectedLeagueYear: Int = -1
+        @Published var selectedLeagueYear: Int = -1 {
+            didSet {
+                getClubsForLeagueAndYear(leagueId: selectedLeagueId, year: selectedLeagueYear)
+            }
+        }
 
         
         init() {
@@ -132,6 +137,25 @@ extension MainView {
                 }
             }
             
+        }
+        
+        func getClubsForLeagueAndYear(leagueId: Int, year: Int) {
+            print("getClubsForLeagueAndYear() called with leagueId = \(leagueId) and year = \(year)")
+            Network.shared.apollo.fetch(query: GetClubsByLeagueAndYearQuery(leagueId: leagueId, year: year)) { result in
+                switch result {
+                case .success(let graphQLResult):
+                    self.clubs.removeAll()
+                    if let clubsArray = graphQLResult.data?.getClubsByLeagueAndYear {
+                        print("clubsArray = \(clubsArray)")
+                        self.clubs.append(contentsOf: clubsArray.compactMap { Club(clubId: $0.id, name: $0.name, stadiumName: $0.stadiumName, latitude: $0.latitude, longitude: $0.longitude) })
+                    }
+                    if let errors = graphQLResult.errors {
+                        print("Errors: \(errors)")
+                    }
+                case .failure(let error):
+                    print("Failure!: Error: \(error)")
+                }
+            }
         }
         
     }

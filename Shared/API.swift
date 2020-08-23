@@ -4,6 +4,145 @@
 import Apollo
 import Foundation
 
+public final class GetClubsByLeagueAndYearQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query GetClubsByLeagueAndYear($leagueId: Int!, $year: Int!) {
+      getClubsByLeagueAndYear(leagueId: $leagueId, year: $year) {
+        __typename
+        id
+        name
+        stadiumName
+        latitude
+        longitude
+      }
+    }
+    """
+
+  public let operationName: String = "GetClubsByLeagueAndYear"
+
+  public var leagueId: Int
+  public var year: Int
+
+  public init(leagueId: Int, year: Int) {
+    self.leagueId = leagueId
+    self.year = year
+  }
+
+  public var variables: GraphQLMap? {
+    return ["leagueId": leagueId, "year": year]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("getClubsByLeagueAndYear", arguments: ["leagueId": GraphQLVariable("leagueId"), "year": GraphQLVariable("year")], type: .nonNull(.list(.nonNull(.object(GetClubsByLeagueAndYear.selections))))),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(getClubsByLeagueAndYear: [GetClubsByLeagueAndYear]) {
+      self.init(unsafeResultMap: ["__typename": "Query", "getClubsByLeagueAndYear": getClubsByLeagueAndYear.map { (value: GetClubsByLeagueAndYear) -> ResultMap in value.resultMap }])
+    }
+
+    public var getClubsByLeagueAndYear: [GetClubsByLeagueAndYear] {
+      get {
+        return (resultMap["getClubsByLeagueAndYear"] as! [ResultMap]).map { (value: ResultMap) -> GetClubsByLeagueAndYear in GetClubsByLeagueAndYear(unsafeResultMap: value) }
+      }
+      set {
+        resultMap.updateValue(newValue.map { (value: GetClubsByLeagueAndYear) -> ResultMap in value.resultMap }, forKey: "getClubsByLeagueAndYear")
+      }
+    }
+
+    public struct GetClubsByLeagueAndYear: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Club"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("name", type: .nonNull(.scalar(String.self))),
+          GraphQLField("stadiumName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("latitude", type: .nonNull(.scalar(Double.self))),
+          GraphQLField("longitude", type: .nonNull(.scalar(Double.self))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: Int, name: String, stadiumName: String, latitude: Double, longitude: Double) {
+        self.init(unsafeResultMap: ["__typename": "Club", "id": id, "name": name, "stadiumName": stadiumName, "latitude": latitude, "longitude": longitude])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: Int {
+        get {
+          return resultMap["id"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var name: String {
+        get {
+          return resultMap["name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+
+      public var stadiumName: String {
+        get {
+          return resultMap["stadiumName"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "stadiumName")
+        }
+      }
+
+      public var latitude: Double {
+        get {
+          return resultMap["latitude"]! as! Double
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "latitude")
+        }
+      }
+
+      public var longitude: Double {
+        get {
+          return resultMap["longitude"]! as! Double
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "longitude")
+        }
+      }
+    }
+  }
+}
+
 public final class GetCountriesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
