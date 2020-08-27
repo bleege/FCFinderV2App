@@ -12,7 +12,6 @@ struct MainView: View {
     
     @ObservedObject var viewModel: ViewModel
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
     @State private var bottomSheetShown = false
         
     init() {
@@ -26,7 +25,7 @@ struct MainView: View {
     var body: some View {
         
         GeometryReader { geometry in
-            Map(coordinateRegion: $region)
+            Map(coordinateRegion: $viewModel.region)
             BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
                 NavigationView {
                     Form {
@@ -76,6 +75,10 @@ extension MainView {
                 getClubsForLeagueAndYear(leagueId: selectedLeagueId, year: selectedLeagueYear)
             }
         }
+        
+        @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
+
+        
 
         
         init() {
