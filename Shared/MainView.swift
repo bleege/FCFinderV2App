@@ -79,9 +79,6 @@ extension MainView {
         }
         
         @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
-
-        
-
         
         init() {
             loadAllCountries()
@@ -153,6 +150,7 @@ extension MainView {
                     if let clubsArray = graphQLResult.data?.getClubsByLeagueAndYear {
                         print("clubsArray = \(clubsArray)")
                         self.clubs.append(contentsOf: clubsArray.compactMap { Club(clubId: $0.id, name: $0.name, stadiumName: $0.stadiumName, latitude: $0.latitude, longitude: $0.longitude) })
+                        self.region = self.generateMapRegion()
                     }
                     if let errors = graphQLResult.errors {
                         print("Errors: \(errors)")
@@ -161,6 +159,27 @@ extension MainView {
                     print("Failure!: Error: \(error)")
                 }
             }
+        }
+        
+        private func generateMapRegion() -> MKCoordinateRegion {
+            if clubs.count == 0 {
+                return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
+            }
+            
+            var mapRect = MKMapRect.null
+            
+            for club in clubs {
+                let point = MKMapPoint(CLLocationCoordinate2DMake(club.latitude, club.longitude))
+                let pointRect = MKMapRect(x: point.x, y: point.y, width: 0.0, height: 0.0)
+                
+                if (pointRect.isNull) {
+                    mapRect = pointRect
+                } else {
+                    mapRect = mapRect.union(pointRect)
+                }
+            }
+
+            return MKCoordinateRegion.init(mapRect)
         }
         
     }
