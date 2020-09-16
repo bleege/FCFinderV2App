@@ -165,23 +165,33 @@ extension MainView {
             if clubs.count == 0 {
                 return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
             }
+
+            var maxLat: Double = -200.0
+            var maxLong: Double = -200.0
+            var minLat: Double = Double.infinity
+            var minLong: Double = Double.infinity
             
-            var mapRect = MKMapRect.null
-            
-            for club in clubs {
-                let point = MKMapPoint(CLLocationCoordinate2DMake(club.latitude, club.longitude))
-                let pointRect = MKMapRect(x: point.x, y: point.y, width: 0.0, height: 0.0)
-                
-                if (pointRect.isNull) {
-                    mapRect = pointRect
-                } else {
-                    mapRect = mapRect.union(pointRect)
+            clubs.forEach { coordinate in
+                if (coordinate.latitude < minLat) {
+                    minLat = coordinate.latitude;
+                }
+
+                if (coordinate.longitude < minLong) {
+                    minLong = coordinate.longitude;
+                }
+
+                if (coordinate.latitude > maxLat) {
+                    maxLat = coordinate.latitude;
+                }
+
+                if (coordinate.longitude > maxLong) {
+                    maxLong = coordinate.longitude;
                 }
             }
-
-            return MKCoordinateRegion.init(mapRect)
+            let center = CLLocationCoordinate2DMake((maxLat + minLat) * 0.5, (maxLong + minLong) * 0.5)
+            return MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.25, longitudeDelta: (maxLong - minLong) * 1.25))
         }
-        
+
     }
     
 }
