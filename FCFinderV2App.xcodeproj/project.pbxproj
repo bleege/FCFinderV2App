@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21BEC962512D241006BBBDD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21BEC952512D241006BBBDD /* MapView.swift */; };
+		A21BEC972512D241006BBBDD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21BEC952512D241006BBBDD /* MapView.swift */; };
 		A21DB50D24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */; };
 		A21DB50E24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */; };
 		A21DB51024F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
@@ -59,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A21BEC952512D241006BBBDD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetClubsForLeagueAndYear.graphql; sourceTree = "<group>"; };
 		A21DB50F24F2122800546D5B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		A22B935824CE412A00FC74FD /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
@@ -153,6 +156,7 @@
 				A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */,
 				A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */,
 				A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */,
+				A21BEC952512D241006BBBDD /* MapView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -415,6 +419,7 @@
 				A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
 				A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */,
 				A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */,
+				A21BEC962512D241006BBBDD /* MapView.swift in Sources */,
 				A2733C9A24CFC8AF007132E2 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A251C99E24B545EA00A9250F /* MainView.swift in Sources */,
+				A21BEC972512D241006BBBDD /* MapView.swift in Sources */,
 				A2733C9824CFC38B007132E2 /* Network.swift in Sources */,
 				A2733C9B24CFC8AF007132E2 /* API.swift in Sources */,
 				A21DB51124F2122800546D5B /* Club.swift in Sources */,
