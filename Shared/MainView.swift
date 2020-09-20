@@ -28,7 +28,7 @@ struct MainView: View {
 //            Map(coordinateRegion: $viewModel.region, annotationItems: viewModel.clubs) { (club) -> MapPin in
 //                return MapPin(coordinate: CLLocationCoordinate2DMake(club.latitude, club.longitude))
 //            }
-            MapView(coordinateRegion: $viewModel.region, annotations: [])
+            MapView(coordinateRegion: $viewModel.region, clubs: $viewModel.clubs)
             BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
                 NavigationView {
                     Form {
@@ -59,10 +59,10 @@ struct MainView: View {
 extension MainView {
     
     class ViewModel: ObservableObject {
-        @Published private(set) var countries: [Country] = []
-        @Published private(set) var countryLeages: [League] = []
-        @Published private(set) var leagueYears: [Int] = []
-        @Published private(set) var clubs: [Club] = []
+        @Published var countries: [Country] = []
+        @Published var countryLeages: [League] = []
+        @Published var leagueYears: [Int] = []
+        @Published var clubs: [Club] = []
         @Published var selectedCountryId: Int = -1 {
             didSet {
                 getLeaguesByCountry(countryId: selectedCountryId)

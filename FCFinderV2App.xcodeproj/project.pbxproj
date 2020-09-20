@@ -41,6 +41,7 @@
 		A2D6641324CCE4C1002F25BE /* ApolloCodegenLib in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6641224CCE4C1002F25BE /* ApolloCodegenLib */; };
 		A2EBA65624F062790028F66C /* GetYearsForLeague.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */; };
 		A2EBA65724F062790028F66C /* GetYearsForLeague.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */; };
+		A2EFFB202516D99B0069858C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EFFB1F2516D99B0069858C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		A2BFDE2E24B7F14200CF1DE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		A2D5BD7E24D76A0600C6ADEC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetYearsForLeague.graphql; sourceTree = "<group>"; };
+		A2EFFB1F2516D99B0069858C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2EFFB202516D99B0069858C /* CoreLocation.framework in Frameworks */,
 				A2D6641324CCE4C1002F25BE /* ApolloCodegenLib in Frameworks */,
 				A2D6640D24CCE4C1002F25BE /* ApolloCore in Frameworks */,
 				A2D6641124CCE4C1002F25BE /* Apollo in Frameworks */,
@@ -211,6 +214,7 @@
 		A2BFDE2D24B7F14200CF1DE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2EFFB1F2516D99B0069858C /* CoreLocation.framework */,
 				A2BFDE2E24B7F14200CF1DE0 /* MapKit.framework */,
 			);
 			name = Frameworks;
