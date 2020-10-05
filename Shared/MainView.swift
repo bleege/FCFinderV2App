@@ -25,9 +25,6 @@ struct MainView: View {
     var body: some View {
         
         GeometryReader { geometry in
-//            Map(coordinateRegion: $viewModel.region, annotationItems: viewModel.clubs) { (club) -> MapPin in
-//                return MapPin(coordinate: CLLocationCoordinate2DMake(club.latitude, club.longitude))
-//            }
             MapView(coordinateRegion: $viewModel.region, clubs: $viewModel.clubs)
             BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
                 NavigationView {
