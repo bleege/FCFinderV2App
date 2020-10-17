@@ -12,9 +12,7 @@ import Combine
 struct MainView: View {
     
     @ObservedObject var viewModel: ViewModel
-    
-    @State private var bottomSheetShown = false
-        
+            
     init() {
         self.init(viewModel: ViewModel())
     }
@@ -27,7 +25,7 @@ struct MainView: View {
         
         GeometryReader { geometry in
             MapView(coordinateRegion: $viewModel.region, clubs: $viewModel.clubs)
-            BottomSheetView(isOpen: $bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
+            BottomSheetView(isOpen: $viewModel.bottomSheetShown, maxHeight: geometry.size.height * 0.5) {
                 NavigationView {
                     Form {
                         Picker("Countries", selection: $viewModel.selectedCountryId) {
@@ -66,6 +64,7 @@ extension MainView {
         @Published var selectedLeagueYear: Int = -1
         
         @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
+        @Published var bottomSheetShown = false
         
         private var countryCancellable: AnyCancellable?
         private var leagueCancellable: AnyCancellable?
@@ -95,6 +94,7 @@ extension MainView {
                 print("selectedLeagueYear received = \(value)")
                 if let leagueId = self?.selectedLeagueId, value >= 0 {
                     self?.getClubsForLeagueAndYear(leagueId: leagueId, year: value)
+                    self?.bottomSheetShown = false
                 }
             })
 
