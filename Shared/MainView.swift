@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 struct MainView: View {
     
@@ -60,26 +61,40 @@ extension MainView {
         @Published var countryLeages: [League] = []
         @Published var leagueYears: [Int] = []
         @Published var clubs: [Club] = []
-        @Published var selectedCountryId: Int = -1 {
-            didSet {
-                getLeaguesByCountry(countryId: selectedCountryId)
-            }
-        }
-        @Published var selectedLeagueId: Int = -1 {
-            didSet {
-                getYearsForLeague(leagueId: selectedLeagueId)
-            }
-        }
-        @Published var selectedLeagueYear: Int = -1 {
-            didSet {
-                getClubsForLeagueAndYear(leagueId: selectedLeagueId, year: selectedLeagueYear)
-            }
-        }
+        @Published var selectedCountryId: Int = -1
+        @Published var selectedLeagueId: Int = -1
+        @Published var selectedLeagueYear: Int = -1
         
         @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
         
+        private var countryCancellable: AnyCancellable?
+        private var leagueCancellable: AnyCancellable?
+        private var yearCancellable: AnyCancellable?
+        
         init() {
             loadAllCountries()
+            
+            // Listen for data changes from UI
+            // https://www.appsdissected.com/save-sink-assign-subscriber-anycancellable/
+            countryCancellable = self.$selectedCountryId.sink(receiveValue: { [weak self] value in
+                print("selectedCountryId received = \(value)")
+                if (value >= 0) {
+                    self?.getLeaguesByCountry(countryId: value)
+                }
+            })
+            leagueCancellable = self.$selectedLeagueId.sink(receiveValue: { [weak self] value in
+                print("selectedLeagueId received = \(value)")
+                if (value >= 0) {
+                    self?.getYearsForLeague(leagueId: value)
+                }
+            })
+            yearCancellable = self.$selectedLeagueYear.sink(receiveValue: { [weak self] value in
+                print("selectedLeagueYear received = \(value)")
+                if let leagueId = self?.selectedLeagueId, value >= 0 {
+                    self?.getClubsForLeagueAndYear(leagueId: leagueId, year: value)
+                }
+            })
+
         }
 
         func loadAllCountries() {
