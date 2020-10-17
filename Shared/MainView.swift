@@ -80,12 +80,15 @@ extension MainView {
                 print("selectedCountryId received = \(value)")
                 if (value >= 0) {
                     self?.getLeaguesByCountry(countryId: value)
+                    self?.selectedLeagueId = -1
+                    self?.selectedLeagueYear = -1
                 }
             })
             leagueCancellable = self.$selectedLeagueId.sink(receiveValue: { [weak self] value in
                 print("selectedLeagueId received = \(value)")
                 if (value >= 0) {
                     self?.getYearsForLeague(leagueId: value)
+                    self?.selectedLeagueYear = -1
                 }
             })
             yearCancellable = self.$selectedLeagueYear.sink(receiveValue: { [weak self] value in
