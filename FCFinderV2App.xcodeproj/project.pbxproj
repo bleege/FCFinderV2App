@@ -33,6 +33,8 @@
 		A298128B24F064AD00A298FE /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298128924F064AC00A298FE /* League.swift */; };
 		A299955924E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */; };
 		A299955A24E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */; };
+		A29FCAA4253CEBAC00D42F99 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */; };
+		A29FCAA5253CEBAC00D42F99 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */; };
 		A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D6640D24CCE4C1002F25BE /* ApolloCore in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6640C24CCE4C1002F25BE /* ApolloCore */; };
@@ -86,6 +88,7 @@
 		A2733C9924CFC8AF007132E2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A298128924F064AC00A298FE /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetLeaguesByCountry.graphql; sourceTree = "<group>"; };
+		A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A2BFDE2E24B7F14200CF1DE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		A2D5BD7E24D76A0600C6ADEC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetYearsForLeague.graphql; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 			children = (
 				A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */,
 				A251C97324B545E800A9250F /* MainView.swift */,
+				A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */,
 				A2733C9924CFC8AF007132E2 /* API.swift */,
 				A2733C9624CFC38B007132E2 /* Network.swift */,
 				A251C97424B545EA00A9250F /* Assets.xcassets */,
@@ -421,6 +425,7 @@
 				A251C99D24B545EA00A9250F /* MainView.swift in Sources */,
 				A21DB51024F2122800546D5B /* Club.swift in Sources */,
 				A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
+				A29FCAA4253CEBAC00D42F99 /* MainViewModel.swift in Sources */,
 				A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */,
 				A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */,
 				A21BEC962512D241006BBBDD /* MapView.swift in Sources */,
@@ -440,6 +445,7 @@
 				A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */,
 				A298128B24F064AD00A298FE /* League.swift in Sources */,
 				A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
+				A29FCAA5253CEBAC00D42F99 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
