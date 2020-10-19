@@ -11,6 +11,7 @@ import Combine
 protocol DataManagerProtocol {
     func loadAllCountries() -> AnyPublisher<[Country], Error>
     func getLeaguesByCountry(countryId: Int) -> AnyPublisher<[League], Error>
+    func getYearsForLeague(leagueId: Int) -> AnyPublisher<[Int], Error>
 }
 
 class DataManager: DataManagerProtocol {
@@ -62,6 +63,31 @@ class DataManager: DataManagerProtocol {
             }
 
 
+        }.eraseToAnyPublisher()
+        
+        return futureAsyncPublisher
+    }
+    
+    func getYearsForLeague(leagueId: Int) -> AnyPublisher<[Int], Error> {
+        
+        let futureAsyncPublisher = Future<[Int], Error> { promise in
+
+            Network.shared.apollo.fetch(query: GetYearsForLeagueQuery(leagueId: leagueId)) { result in
+                switch result {
+                case .success(let graphQLResult):
+                    if let yearsArray = graphQLResult.data?.getYearsForLeague {
+                        promise(.success(yearsArray))
+                    }
+                    if let errors = graphQLResult.errors, let error = errors.first {
+                        print("Errors: \(errors)")
+                        promise(.failure(error))
+                    }
+                case .failure(let error):
+                    print("Failure!: Error: \(error)")
+                    promise(.failure(error))
+                }
+            }
+            
         }.eraseToAnyPublisher()
         
         return futureAsyncPublisher

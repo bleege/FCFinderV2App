@@ -27,6 +27,7 @@ class MainViewModel: ObservableObject {
     
     private var allCountriesCancellable: AnyCancellable?
     private var getLeaguesCancellable: AnyCancellable?
+    private var getYearsCancellable: AnyCancellable?
     private var countryCancellable: AnyCancellable?
     private var leagueCancellable: AnyCancellable?
     private var yearCancellable: AnyCancellable?
@@ -84,21 +85,12 @@ class MainViewModel: ObservableObject {
     
     func getYearsForLeague(leagueId: Int) {
         print("getYearsForLeague() with leagueId = \(leagueId)")
-        Network.shared.apollo.fetch(query: GetYearsForLeagueQuery(leagueId: leagueId)) { result in
-            switch result {
-            case .success(let graphQLResult):
-                self.leagueYears.removeAll()
-                if let yearsArray = graphQLResult.data?.getYearsForLeague {
-                    self.leagueYears.append(contentsOf: yearsArray)
-                }
-                if let errors = graphQLResult.errors {
-                    print("Errors: \(errors)")
-                }
-            case .failure(let error):
-                print("Failure!: Error: \(error)")
-            }
-        }
-        
+        getYearsCancellable = dataManager.getYearsForLeague(leagueId: leagueId).sink(receiveCompletion: { message in
+            // No Op
+        }, receiveValue: { years in
+            self.leagueYears.removeAll()
+            self.leagueYears.append(contentsOf: years)
+        })
     }
     
     func getClubsForLeagueAndYear(leagueId: Int, year: Int) {
