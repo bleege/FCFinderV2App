@@ -10,6 +10,7 @@ import Combine
 
 protocol DataManagerProtocol {
     func loadAllCountries() -> AnyPublisher<[Country], Error>
+    func getLeaguesByCountry(countryId: Int) -> AnyPublisher<[League], Error>
 }
 
 class DataManager: DataManagerProtocol {
@@ -39,5 +40,31 @@ class DataManager: DataManagerProtocol {
         
         return futureAsyncPublisher
     }
+    
+    func getLeaguesByCountry(countryId: Int) -> AnyPublisher<[League], Error> {
+        let futureAsyncPublisher = Future<[League], Error> { promise in
 
+            Network.shared.apollo.fetch(query: GetLeaguesByCountryQuery(countryId: countryId)) { result in
+                switch result {
+                case .success(let graphQLResult):
+                    if let leagueArray = graphQLResult.data?.getLeaguesByCountryId {
+                        let leagues = leagueArray.compactMap { League(leagueId: $0.id, name: $0.name, division: $0.division, country: Country(countryId: $0.country.id, name: $0.country.name), confederation: $0.confederation) }
+                        promise(.success(leagues))
+                    }
+                    if let errors = graphQLResult.errors, let error = errors.first {
+                        print("Errors: \(errors)")
+                        promise(.failure(error))
+                    }
+                case .failure(let error):
+                    print("Failure!: Error: \(error)")
+                    promise(.failure(error))
+                }
+            }
+
+
+        }.eraseToAnyPublisher()
+        
+        return futureAsyncPublisher
+    }
+    
 }

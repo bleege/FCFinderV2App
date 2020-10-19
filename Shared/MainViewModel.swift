@@ -15,7 +15,7 @@ class MainViewModel: ObservableObject {
     
     // MARK: - Published Data
     @Published var countries: [Country] = []
-    @Published var countryLeages: [League] = []
+    @Published var countryLeagues: [League] = []
     @Published var leagueYears: [Int] = []
     @Published var clubs: [Club] = []
     @Published var selectedCountryId: Int = -1
@@ -26,6 +26,7 @@ class MainViewModel: ObservableObject {
     @Published var bottomSheetShown = false
     
     private var allCountriesCancellable: AnyCancellable?
+    private var getLeaguesCancellable: AnyCancellable?
     private var countryCancellable: AnyCancellable?
     private var leagueCancellable: AnyCancellable?
     private var yearCancellable: AnyCancellable?
@@ -73,20 +74,12 @@ class MainViewModel: ObservableObject {
     
     func getLeaguesByCountry(countryId: Int) {
         print("getLeaguesByCountry with countryId = \(countryId)")
-        Network.shared.apollo.fetch(query: GetLeaguesByCountryQuery(countryId: countryId)) { result in
-            switch result {
-            case .success(let graphQLResult):
-                self.countryLeages.removeAll()
-                if let leagueArray = graphQLResult.data?.getLeaguesByCountryId {
-                    self.countryLeages.append(contentsOf: leagueArray.compactMap { League(leagueId: $0.id, name: $0.name, division: $0.division, country: Country(countryId: $0.country.id, name: $0.country.name), confederation: $0.confederation) })
-                }
-                if let errors = graphQLResult.errors {
-                    print("Errors: \(errors)")
-                }
-            case .failure(let error):
-                print("Failure!: Error: \(error)")
-            }
-        }
+        getLeaguesCancellable = dataManager.getLeaguesByCountry(countryId: countryId).sink(receiveCompletion: { message in
+            // No Op
+        }, receiveValue: { leagues in
+            self.countryLeagues.removeAll()
+            self.countryLeagues.append(contentsOf: leagues)
+        })
     }
     
     func getYearsForLeague(leagueId: Int) {

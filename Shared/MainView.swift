@@ -34,7 +34,7 @@ struct MainView: View {
                             }
                         }
                         Picker("Leagues", selection: $viewModel.selectedLeagueId) {
-                            ForEach(viewModel.countryLeages) { league in
+                            ForEach(viewModel.countryLeagues) { league in
                                 Text(league.name).tag(league.leagueId)
                             }
                         }
