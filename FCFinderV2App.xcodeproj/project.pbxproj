@@ -14,7 +14,7 @@
 		A21DB51024F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
 		A21DB51124F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
 		A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */; };
-		A251C98E24B545EA00A9250F /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* Tests_iOS.swift */; };
+		A251C98E24B545EA00A9250F /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* MainViewModelTests.swift */; };
 		A251C99924B545EA00A9250F /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C99824B545EA00A9250F /* Tests_macOS.swift */; };
 		A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */; };
 		A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */; };
@@ -35,6 +35,8 @@
 		A299955A24E8A5B2004D1115 /* GetLeaguesByCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */; };
 		A29FCAA4253CEBAC00D42F99 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */; };
 		A29FCAA5253CEBAC00D42F99 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */; };
+		A29FCAB3253D00B200D42F99 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FCAB2253D00B200D42F99 /* DataManagerProtocol.swift */; };
+		A29FCAB4253D00B200D42F99 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29FCAB2253D00B200D42F99 /* DataManagerProtocol.swift */; };
 		A2D5BD7F24D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D5BD7E24D76A0600C6ADEC /* Country.swift */; };
 		A2D6640D24CCE4C1002F25BE /* ApolloCore in Frameworks */ = {isa = PBXBuildFile; productRef = A2D6640C24CCE4C1002F25BE /* ApolloCore */; };
@@ -78,7 +80,7 @@
 		A251C98324B545EA00A9250F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A251C98424B545EA00A9250F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		A251C98924B545EA00A9250F /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A251C98D24B545EA00A9250F /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		A251C98D24B545EA00A9250F /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		A251C98F24B545EA00A9250F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A251C99424B545EA00A9250F /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A251C99824B545EA00A9250F /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		A298128924F064AC00A298FE /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetLeaguesByCountry.graphql; sourceTree = "<group>"; };
 		A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		A29FCAB2253D00B200D42F99 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 		A2BFDE2E24B7F14200CF1DE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		A2D5BD7E24D76A0600C6ADEC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetYearsForLeague.graphql; sourceTree = "<group>"; };
@@ -152,18 +155,19 @@
 				A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */,
 				A251C97324B545E800A9250F /* MainView.swift */,
 				A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */,
+				A21BEC952512D241006BBBDD /* MapView.swift */,
+				A29FCAB2253D00B200D42F99 /* DataManagerProtocol.swift */,
 				A2733C9924CFC8AF007132E2 /* API.swift */,
 				A2733C9624CFC38B007132E2 /* Network.swift */,
-				A251C97424B545EA00A9250F /* Assets.xcassets */,
 				A21DB50F24F2122800546D5B /* Club.swift */,
 				A2D5BD7E24D76A0600C6ADEC /* Country.swift */,
 				A298128924F064AC00A298FE /* League.swift */,
+				A251C97424B545EA00A9250F /* Assets.xcassets */,
 				A22B935824CE412A00FC74FD /* schema.json */,
 				A2733C9024CFC005007132E2 /* GetCountries.graphql */,
 				A299955824E8A5B1004D1115 /* GetLeaguesByCountry.graphql */,
 				A2EBA65524F062790028F66C /* GetYearsForLeague.graphql */,
 				A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */,
-				A21BEC952512D241006BBBDD /* MapView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -200,7 +204,7 @@
 		A251C98C24B545EA00A9250F /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A251C98D24B545EA00A9250F /* Tests_iOS.swift */,
+				A251C98D24B545EA00A9250F /* MainViewModelTests.swift */,
 				A251C98F24B545EA00A9250F /* Info.plist */,
 			);
 			path = "Tests iOS";
@@ -423,6 +427,7 @@
 				A298128A24F064AC00A298FE /* League.swift in Sources */,
 				A2733C9724CFC38B007132E2 /* Network.swift in Sources */,
 				A251C99D24B545EA00A9250F /* MainView.swift in Sources */,
+				A29FCAB3253D00B200D42F99 /* DataManagerProtocol.swift in Sources */,
 				A21DB51024F2122800546D5B /* Club.swift in Sources */,
 				A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
 				A29FCAA4253CEBAC00D42F99 /* MainViewModel.swift in Sources */,
@@ -446,6 +451,7 @@
 				A298128B24F064AD00A298FE /* League.swift in Sources */,
 				A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
 				A29FCAA5253CEBAC00D42F99 /* MainViewModel.swift in Sources */,
+				A29FCAB4253D00B200D42F99 /* DataManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A251C98E24B545EA00A9250F /* Tests_iOS.swift in Sources */,
+				A251C98E24B545EA00A9250F /* MainViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

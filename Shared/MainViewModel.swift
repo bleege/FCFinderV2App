@@ -10,6 +10,10 @@ import Combine
 import MapKit
 
 class MainViewModel: ObservableObject {
+    // MARK: - DataManager
+    private let dataManager: DataManagerProtocol
+    
+    // MARK: - Published Data
     @Published var countries: [Country] = []
     @Published var countryLeages: [League] = []
     @Published var leagueYears: [Int] = []
@@ -21,11 +25,13 @@ class MainViewModel: ObservableObject {
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 43.07472, longitude: -89.38421), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5 ))
     @Published var bottomSheetShown = false
     
+    private var allCountriesCancellable: AnyCancellable?
     private var countryCancellable: AnyCancellable?
     private var leagueCancellable: AnyCancellable?
     private var yearCancellable: AnyCancellable?
     
-    init() {
+    init(_ dataManager: DataManagerProtocol = DataManager()) {
+        self.dataManager = dataManager
         loadAllCountries()
         
         // Listen for data changes from UI
@@ -57,22 +63,12 @@ class MainViewModel: ObservableObject {
     
     func loadAllCountries() {
         print("loadAllCountries() called...")
-        Network.shared.apollo.fetch(query: GetCountriesQuery()) { result in
-            switch result {
-            case .success(let graphQLResult):
-                print("successful load of data")
-                self.countries.removeAll()
-                if let countriesArray = graphQLResult.data?.getAllCountries {
-                    self.countries.append(contentsOf: countriesArray.compactMap { Country(countryId: $0.id, name: $0.name) })
-                }
-                if let errors = graphQLResult.errors {
-                    print("Errors: \(errors)")
-                }
-            case .failure(let error):
-                print("Failure! Error: \(error)")
-            }
-        }
-        
+        allCountriesCancellable = dataManager.loadAllCountries().sink(receiveCompletion: { message in
+            // No Op
+        }, receiveValue: { countries in
+            self.countries.removeAll()
+            self.countries.append(contentsOf: countries)
+        })
     }
     
     func getLeaguesByCountry(countryId: Int) {
