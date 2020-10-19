@@ -12,6 +12,7 @@ protocol DataManagerProtocol {
     func loadAllCountries() -> AnyPublisher<[Country], Error>
     func getLeaguesByCountry(countryId: Int) -> AnyPublisher<[League], Error>
     func getYearsForLeague(leagueId: Int) -> AnyPublisher<[Int], Error>
+    func getClubsForLeagueAndYear(leagueId: Int, year: Int) -> AnyPublisher<[Club], Error>
 }
 
 class DataManager: DataManagerProtocol {
@@ -93,4 +94,27 @@ class DataManager: DataManagerProtocol {
         return futureAsyncPublisher
     }
     
+    func getClubsForLeagueAndYear(leagueId: Int, year: Int) -> AnyPublisher<[Club], Error> {
+        
+        let futureAsyncPublisher = Future<[Club], Error> { promise in
+            Network.shared.apollo.fetch(query: GetClubsByLeagueAndYearQuery(leagueId: leagueId, year: year)) { result in
+                switch result {
+                case .success(let graphQLResult):
+                    if let clubsArray = graphQLResult.data?.getClubsByLeagueAndYear {
+                        let clubs = clubsArray.compactMap { Club(clubId: $0.id, name: $0.name, stadiumName: $0.stadiumName, latitude: $0.latitude, longitude: $0.longitude) }
+                        promise(.success(clubs))
+                    }
+                    if let errors = graphQLResult.errors, let error = errors.first {
+                        print("Errors: \(errors)")
+                        promise(.failure(error))
+                    }
+                case .failure(let error):
+                    print("Failure!: Error: \(error)")
+                    promise(.failure(error))
+                }
+            }
+        }.eraseToAnyPublisher()
+        
+        return futureAsyncPublisher
+    }
 }

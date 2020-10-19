@@ -28,6 +28,7 @@ class MainViewModel: ObservableObject {
     private var allCountriesCancellable: AnyCancellable?
     private var getLeaguesCancellable: AnyCancellable?
     private var getYearsCancellable: AnyCancellable?
+    private var getClubsCancellable: AnyCancellable?
     private var countryCancellable: AnyCancellable?
     private var leagueCancellable: AnyCancellable?
     private var yearCancellable: AnyCancellable?
@@ -95,22 +96,13 @@ class MainViewModel: ObservableObject {
     
     func getClubsForLeagueAndYear(leagueId: Int, year: Int) {
         print("getClubsForLeagueAndYear() called with leagueId = \(leagueId) and year = \(year)")
-        Network.shared.apollo.fetch(query: GetClubsByLeagueAndYearQuery(leagueId: leagueId, year: year)) { result in
-            switch result {
-            case .success(let graphQLResult):
-                self.clubs.removeAll()
-                if let clubsArray = graphQLResult.data?.getClubsByLeagueAndYear {
-                    print("clubsArray = \(clubsArray)")
-                    self.clubs.append(contentsOf: clubsArray.compactMap { Club(clubId: $0.id, name: $0.name, stadiumName: $0.stadiumName, latitude: $0.latitude, longitude: $0.longitude) })
-                    self.region = self.generateMapRegion()
-                }
-                if let errors = graphQLResult.errors {
-                    print("Errors: \(errors)")
-                }
-            case .failure(let error):
-                print("Failure!: Error: \(error)")
-            }
-        }
+        getClubsCancellable = dataManager.getClubsForLeagueAndYear(leagueId: leagueId, year: year).sink(receiveCompletion: { message in
+            // No Op
+        }, receiveValue: { clubs in
+            self.clubs.removeAll()
+            self.clubs.append(contentsOf: clubs)
+            self.region = self.generateMapRegion()
+        })
     }
     
     private func generateMapRegion() -> MKCoordinateRegion {
