@@ -13,6 +13,8 @@
 		A21DB50E24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */; };
 		A21DB51024F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
 		A21DB51124F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
+		A22D33C6253E62C40014821D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D33C5253E62C40014821D /* DataManager.swift */; };
+		A22D33C7253E62C40014821D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D33C5253E62C40014821D /* DataManager.swift */; };
 		A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */; };
 		A251C98E24B545EA00A9250F /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* MainViewModelTests.swift */; };
 		A251C99924B545EA00A9250F /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C99824B545EA00A9250F /* Tests_macOS.swift */; };
@@ -70,6 +72,7 @@
 		A21DB50C24F20E9100546D5B /* GetClubsForLeagueAndYear.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetClubsForLeagueAndYear.graphql; sourceTree = "<group>"; };
 		A21DB50F24F2122800546D5B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		A22B935824CE412A00FC74FD /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
+		A22D33C5253E62C40014821D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFinderV2AppApp.swift; sourceTree = "<group>"; };
 		A251C97324B545E800A9250F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 				A29FCAA3253CEBAC00D42F99 /* MainViewModel.swift */,
 				A21BEC952512D241006BBBDD /* MapView.swift */,
 				A29FCAB2253D00B200D42F99 /* DataManagerProtocol.swift */,
+				A22D33C5253E62C40014821D /* DataManager.swift */,
 				A2733C9924CFC8AF007132E2 /* API.swift */,
 				A2733C9624CFC38B007132E2 /* Network.swift */,
 				A21DB50F24F2122800546D5B /* Club.swift */,
@@ -425,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A298128A24F064AC00A298FE /* League.swift in Sources */,
+				A22D33C6253E62C40014821D /* DataManager.swift in Sources */,
 				A2733C9724CFC38B007132E2 /* Network.swift in Sources */,
 				A251C99D24B545EA00A9250F /* MainView.swift in Sources */,
 				A29FCAB3253D00B200D42F99 /* DataManagerProtocol.swift in Sources */,
@@ -450,6 +455,7 @@
 				A2D5BD8024D76A0600C6ADEC /* Country.swift in Sources */,
 				A298128B24F064AD00A298FE /* League.swift in Sources */,
 				A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */,
+				A22D33C7253E62C40014821D /* DataManager.swift in Sources */,
 				A29FCAA5253CEBAC00D42F99 /* MainViewModel.swift in Sources */,
 				A29FCAB4253D00B200D42F99 /* DataManagerProtocol.swift in Sources */,
 			);
