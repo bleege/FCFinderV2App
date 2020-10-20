@@ -15,8 +15,10 @@
 		A21DB51124F2122800546D5B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21DB50F24F2122800546D5B /* Club.swift */; };
 		A22D33C6253E62C40014821D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D33C5253E62C40014821D /* DataManager.swift */; };
 		A22D33C7253E62C40014821D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D33C5253E62C40014821D /* DataManager.swift */; };
+		A22D33F1253E719C0014821D /* DataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D33D0253E641B0014821D /* DataManagerMock.swift */; };
+		A22D33FC253E71A10014821D /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* MainViewModelTests.swift */; };
+		A22D3412253E72B20014821D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D3411253E72B20014821D /* Tests_iOS.swift */; };
 		A247B47B24BEA33A00F2D748 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */; };
-		A251C98E24B545EA00A9250F /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C98D24B545EA00A9250F /* MainViewModelTests.swift */; };
 		A251C99924B545EA00A9250F /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C99824B545EA00A9250F /* Tests_macOS.swift */; };
 		A251C99B24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */; };
 		A251C99C24B545EA00A9250F /* FCFinderV2AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */; };
@@ -51,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A22D33E7253E718B0014821D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A251C96D24B545E800A9250F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A251C97824B545EA00A9250F;
+			remoteInfo = "FCFinderV2App (iOS)";
+		};
 		A251C98A24B545EA00A9250F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A251C96D24B545E800A9250F /* Project object */;
@@ -73,6 +82,10 @@
 		A21DB50F24F2122800546D5B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		A22B935824CE412A00FC74FD /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
 		A22D33C5253E62C40014821D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A22D33D0253E641B0014821D /* DataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerMock.swift; sourceTree = "<group>"; };
+		A22D33E2253E718B0014821D /* TestsShared.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestsShared.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A22D33E6253E718B0014821D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A22D3411253E72B20014821D /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		A247B47A24BEA33A00F2D748 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		A251C97224B545E800A9250F /* FCFinderV2AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCFinderV2AppApp.swift; sourceTree = "<group>"; };
 		A251C97324B545E800A9250F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -102,6 +115,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A22D33DF253E718B0014821D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A251C97624B545EA00A9250F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +159,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A22D33E3253E718B0014821D /* TestsShared */ = {
+			isa = PBXGroup;
+			children = (
+				A22D33D0253E641B0014821D /* DataManagerMock.swift */,
+				A251C98D24B545EA00A9250F /* MainViewModelTests.swift */,
+				A22D33E6253E718B0014821D /* Info.plist */,
+			);
+			path = TestsShared;
+			sourceTree = "<group>";
+		};
 		A251C96C24B545E800A9250F = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +177,7 @@
 				A251C98224B545EA00A9250F /* macOS */,
 				A251C98C24B545EA00A9250F /* Tests iOS */,
 				A251C99724B545EA00A9250F /* Tests macOS */,
+				A22D33E3253E718B0014821D /* TestsShared */,
 				A251C97A24B545EA00A9250F /* Products */,
 				A2BFDE2D24B7F14200CF1DE0 /* Frameworks */,
 			);
@@ -183,6 +214,7 @@
 				A251C98124B545EA00A9250F /* FCFinderV2App.app */,
 				A251C98924B545EA00A9250F /* Tests iOS.xctest */,
 				A251C99424B545EA00A9250F /* Tests macOS.xctest */,
+				A22D33E2253E718B0014821D /* TestsShared.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,8 +240,8 @@
 		A251C98C24B545EA00A9250F /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A251C98D24B545EA00A9250F /* MainViewModelTests.swift */,
 				A251C98F24B545EA00A9250F /* Info.plist */,
+				A22D3411253E72B20014821D /* Tests_iOS.swift */,
 			);
 			path = "Tests iOS";
 			sourceTree = "<group>";
@@ -235,6 +267,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A22D33E1253E718B0014821D /* TestsShared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A22D33E9253E718B0014821D /* Build configuration list for PBXNativeTarget "TestsShared" */;
+			buildPhases = (
+				A22D33DE253E718B0014821D /* Sources */,
+				A22D33DF253E718B0014821D /* Frameworks */,
+				A22D33E0253E718B0014821D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A22D33E8253E718B0014821D /* PBXTargetDependency */,
+			);
+			name = TestsShared;
+			productName = TestsShared;
+			productReference = A22D33E2253E718B0014821D /* TestsShared.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A251C97824B545EA00A9250F /* FCFinderV2App (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A251C9A324B545EA00A9250F /* Build configuration list for PBXNativeTarget "FCFinderV2App (iOS)" */;
@@ -318,9 +368,13 @@
 		A251C96D24B545E800A9250F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					A22D33E1253E718B0014821D = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = A251C97824B545EA00A9250F;
+					};
 					A251C97824B545EA00A9250F = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -329,6 +383,7 @@
 					};
 					A251C98824B545EA00A9250F = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1210;
 						TestTargetID = A251C97824B545EA00A9250F;
 					};
 					A251C99324B545EA00A9250F = {
@@ -357,11 +412,19 @@
 				A251C98024B545EA00A9250F /* FCFinderV2App (macOS) */,
 				A251C98824B545EA00A9250F /* Tests iOS */,
 				A251C99324B545EA00A9250F /* Tests macOS */,
+				A22D33E1253E718B0014821D /* TestsShared */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A22D33E0253E718B0014821D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A251C97724B545EA00A9250F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +487,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A22D33DE253E718B0014821D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A22D33FC253E71A10014821D /* MainViewModelTests.swift in Sources */,
+				A22D33F1253E719C0014821D /* DataManagerMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A251C97524B545EA00A9250F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,7 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A251C98E24B545EA00A9250F /* MainViewModelTests.swift in Sources */,
+				A22D3412253E72B20014821D /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +552,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A22D33E8253E718B0014821D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A251C97824B545EA00A9250F /* FCFinderV2App (iOS) */;
+			targetProxy = A22D33E7253E718B0014821D /* PBXContainerItemProxy */;
+		};
 		A251C98B24B545EA00A9250F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A251C97824B545EA00A9250F /* FCFinderV2App (iOS) */;
@@ -493,6 +570,51 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A22D33EA253E718B0014821D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98VS3NV9WE;
+				INFOPLIST_FILE = TestsShared/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.leege.TestsShared;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FCFinderV2App.app/FCFinderV2App";
+			};
+			name = Debug;
+		};
+		A22D33EB253E718B0014821D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98VS3NV9WE;
+				INFOPLIST_FILE = TestsShared/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.leege.TestsShared;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FCFinderV2App.app/FCFinderV2App";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		A251C9A124B545EA00A9250F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,6 +823,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98VS3NV9WE;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
@@ -713,6 +836,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.leege.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "FCFinderV2App (iOS)";
@@ -723,6 +847,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98VS3NV9WE;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
@@ -789,6 +914,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A22D33E9253E718B0014821D /* Build configuration list for PBXNativeTarget "TestsShared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A22D33EA253E718B0014821D /* Debug */,
+				A22D33EB253E718B0014821D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A251C97024B545E800A9250F /* Build configuration list for PBXProject "FCFinderV2App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
